@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  .container
+    .row.card.text-center
+      h1 Administrator
+    .row.cardd.text-center.p-2
+      .col-sm
+        a.btn.btn-primary(href='/') Home
+      .col-sm
+        a.btn.btn-warning(href='/login') Login
+      .col-sm
+        a.btn.btn-secondary(href='/register') Register
+    .row.card.p-4
+      .table-responsive
+        table.table.table-hover
+          thead
+            tr
+              th #
+              th Username
+              th Password
+              th Action
+          tbody
+            each user,i in users
+              tr
+                td #{i+1}
+                td #{user.username}
+                td #{user.password}
+                td
+                  if user.status
+                    a.btn.btn-primary(href='/admin/decrypt/' + user._id) Decrypt
+                  else
+                    a.btn.btn-primary(href='/admin/encrypt/' + user._id) Encrypt
+                  |  | 
+                  a.btn.btn-danger(href='/admin/delete/' + user._id) Delete

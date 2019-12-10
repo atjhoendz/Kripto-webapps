@@ -1,19 +1,27 @@
 var express = require('express');
 var router = express.Router();
-var path = process.cwd() + '/views/';
 var auth = require('../middleware/auth');
-var { login, register } = require('../controllers/AuthController');
+var { login, register, getAll, deleteId, indexAdmin, decrypt, encrypt } = require('../controllers/MainController');
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
-router.get('/', auth.isAuth, function(req, res, next){
-  res.sendFile(path + 'index.html');
+router.get('/', function(req, res, next){
+  res.render('index');
 });
 
 router.get('/login', (req, res, next) => {
-  res.sendFile(path + 'login.html');
+  res.render('login');
 });
+
+router.post('/login', login);
+
+router.get('/register', (req, res, next) => {
+  res.render('register');
+});
+
+router.post('/register', register);
+
+router.get('/admin', getAll);
+router.get('/admin/delete/:id', [deleteId, indexAdmin]);
+router.get('/admin/decrypt/:id', [decrypt, indexAdmin]);
+router.get('/admin/encrypt/:id', [encrypt, indexAdmin]);
 
 module.exports = router;

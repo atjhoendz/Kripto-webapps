@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .container
+    .row.card.text-center
+      h1 Rot 13
+      //- h4 ${user.username}
+    .row.card.p-4
+      fieldset.form-group
+        label(for='decTextArea') Plain text
+        textarea#decTextArea.form-control(rows='3' autofocus)
+      .text-center
+        img(src='images/arrow.png' height='50px' width='50px' alt='')
+      fieldset.form-group
+        label(for='encTextArea') Cipher Text
+        textarea#encTextArea.form-control(rows='3' readonly)

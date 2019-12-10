@@ -13,20 +13,17 @@
         <h1>Rot 13</h1>
       </div>
       <div class="row card p-4">
-        <form>
-          <fieldset class="form-group">
-            <label for="encTextArea">Input plain/cipher text</label>
-            <textarea class="form-control" id="encTextArea" rows="3"></textarea>
-          </fieldset>
-          <div class="row">
-            <div class="col-md-6">
-              <button type="submit" class="btn btn-primary">Encrypt</button>
-            </div>
-            <div class="col-md-6 text-right">
-              <button type="submit" class="btn btn-warning">Decrypt</button>
-            </div>
-          </div>
-        </form>
+        <fieldset class="form-group">
+          <label for="decTextArea">Plain text</label>
+          <textarea class="form-control" id="decTextArea" rows="3"></textarea>
+        </fieldset>
+        <div class="text-center">
+          <img src="images/arrow.png" height="50px" width="50px" alt="">
+        </div>
+        <fieldset class="form-group">
+          <label for="encTextArea">Cipher Text</label>
+          <textarea class="form-control" id="encTextArea" rows="3"></textarea>
+        </fieldset>
       </div>
     </div>
 

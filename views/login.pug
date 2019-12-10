@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .container
+    .row.card.text-center
+      h1 Login
+    .row.card.p-4
+      form(action='/login' method='POST')#login-form
+        fieldset.form-group
+          label(for='username') Username
+          input#username.form-control(type='text' name="username" placeholder='Enter username' required)
+        fieldset.form-group
+          label(for='password') Password
+          input#password.form-control(type='password' name="password" placeholder='Enter password' required)
+        button.btn.btn-primary(type='submit') Login
+      br
+      a(href='/register') Create New Account.
